@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/tools/grass.png" type="Texture" id=1]
+[ext_resource path="res://MainScene.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 310.96, 9.64984 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.749146
+margin_top = -0.749146
+margin_right = 601.251
+margin_bottom = 699.251
+texture = ExtResource( 1 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 291.352, -4.23785 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 294.731, 702.625 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 203.77
+margin_top = 594.079
+margin_right = 243.77
+margin_bottom = 608.079
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 336.37
+margin_top = 594.079
+margin_right = 427.37
+margin_bottom = 608.079
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "60s remaining"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

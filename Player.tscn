@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/Tools/Scythe.png" type="Texture" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/Tools/frames/f1.png" type="Texture" id=3]
+[ext_resource path="res://assets/Tools/frames/f2.png" type="Texture" id=4]
+[ext_resource path="res://assets/Tools/frames/f3.png" type="Texture" id=5]
+[ext_resource path="res://assets/Tools/frames/f4.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "harvest",
+"speed": 5.0
+} ]
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+position = Vector2( -8.00904, -8.00905 )
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 12.1838, 20.2622 )
+scale = Vector2( 0.75, 0.75 )
+frames = SubResource( 1 )
+animation = "harvest"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -19.0703, -8.07841 )
+polygon = PoolVector2Array( 34.009, 13.7591, 36.259, 15.5091, 37.009, 19.0091, 44.009, 27.5091, 45.509, 32.009, 44.509, 37.759, 39.009, 43.509, 37.759, 38.259, 37.259, 31.0091, 33.759, 26.2591, 31.509, 26.2591, 29.009, 27.7591, 28.009, 31.0091, 30.509, 33.759, 32.509, 36.509, 31.759, 39.509, 29.009, 39.759, 27.259, 38.509, 25.759, 36.009, 23.509, 41.259, 21.009, 43.009, 18.509, 45.009, 16.009, 44.009, 16.259, 40.759, 19.259, 38.009, 20.509, 32.759, 22.509, 27.2591, 24.759, 23.0091, 29.259, 17.5091 )
