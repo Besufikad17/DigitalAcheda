@@ -1,2 +1,2 @@
 # DigitalAcheda
-2D game farming game using godot
+2D farming game made by godot
